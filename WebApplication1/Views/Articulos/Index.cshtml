@@ -1,0 +1,73 @@
+﻿@model IEnumerable<WebApplication1.Models.Articulo>
+
+@using WebApplication1.mmxss
+
+@using  MvcSiteMapProvider.Web.Html
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<h2>
+    @Html.Raw(@UtilidadesXSS.getRuta())
+</h2>
+
+<h2>
+    @Html.Raw(@UtilidadesXSS.getRutaXSS0())
+</h2>
+
+<h2>
+    @Html.Raw(@UtilidadesXSS.getRutaXSS1())
+</h2>
+
+<h2>
+    @Html.Raw(@UtilidadesXSS.getRutaXSS2())
+</h2>
+
+<h2>
+    @Html.Raw(@UtilidadesXSS.getRutaXSS22())
+</h2>
+
+<h2>
+    @Html.MvcSiteMap().SiteMapPath()
+</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Codigo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Precio)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Codigo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Precio)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>
